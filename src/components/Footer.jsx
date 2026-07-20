@@ -157,7 +157,7 @@ function Footer() {
           </a>
 
           <a
-            href="https://wa.me/2348257836970"
+            href="https://wa.me/2348157836970"
             className="
               text-slate-400
               hover:text-emerald-400
