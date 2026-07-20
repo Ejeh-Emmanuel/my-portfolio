@@ -5,7 +5,7 @@ const projects = [{
         tech: "React • Tailwind CSS • API Integration",
         image: "/images/recipe.jpg",
         github: "https://github.com/Ejeh-Emmanuel/recipe-app.git",
-        demo: "Imaginative-cactus-bac5a8.netlify.app",
+        demo: "https://recipe-app-pi-ivory.vercel.app",
     },
 
     {

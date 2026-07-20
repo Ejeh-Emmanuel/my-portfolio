@@ -133,7 +133,7 @@ function Hero() {
               mb-4
             "
           >
-            Hello, I'm
+            Hello, I am
           </motion.p>
 
           <motion.h1
@@ -158,7 +158,7 @@ function Hero() {
               mt-4
             "
           >
-            Frontend Developer
+            A Frontend Developer
           </motion.h2>
 
           <motion.p
