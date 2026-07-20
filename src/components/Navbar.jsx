@@ -68,7 +68,7 @@ function Navbar() {
             text-white
           "
         >
-          EMMANUEL 
+          Emmanuel
         </NavLink>
 
         {/* Desktop Navigation */}
