@@ -35,19 +35,19 @@ const skills = [
 
   {
     name: "SQL",
-    level: 70,
+    level: 60,
     icon: <SiMysql />,
   },
 
   {
     name: "FastAPI",
-    level: 50,
+    level: 40,
     icon: <SiFastapi />,
   },
 
   {
     name: "Python",
-    level: 50,
+    level: 40,
     icon: <FaPython />,
   },
 ];
