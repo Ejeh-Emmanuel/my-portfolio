@@ -24,11 +24,13 @@ function PortfolioCard({ title, description, tech, image, github, demo }) {
       }}
       className="
         group
-        bg-slate-900
+        bg-white
+        dark:bg-slate-900
         rounded-xl
         overflow-hidden
         border
-        border-slate-800
+        border-slate-200
+        dark:border-slate-800
         shadow-md
         hover:shadow-xl
         transition-all
@@ -50,13 +52,13 @@ function PortfolioCard({ title, description, tech, image, github, demo }) {
           alt={`${title} project screenshot`}
           loading="lazy"
           className="
-           w-full
-           h-full
-           object-cover
-           transition-transform
-           duration-500
-           group-hover:scale-105
-         "
+            w-full
+            h-full
+            object-cover
+            transition-transform
+            duration-500
+            group-hover:scale-105
+          "
         />
 
         {/* Image Overlay */}
@@ -84,8 +86,11 @@ function PortfolioCard({ title, description, tech, image, github, demo }) {
           className="
             text-xl
             font-bold
-            text-white
+            text-slate-900
+            dark:text-white
             mb-3
+            transition-colors
+            duration-300
           "
         >
           {title}
@@ -93,9 +98,12 @@ function PortfolioCard({ title, description, tech, image, github, demo }) {
 
         <p
           className="
-            text-slate-400
+            text-slate-600
+            dark:text-slate-400
             mb-4
             leading-relaxed
+            transition-colors
+            duration-300
           "
         >
           {description}
@@ -105,7 +113,7 @@ function PortfolioCard({ title, description, tech, image, github, demo }) {
 
         <p
           className="
-            text-emerald-400
+            text-emerald-500
             text-sm
             mb-6
           "
@@ -122,6 +130,8 @@ function PortfolioCard({ title, description, tech, image, github, demo }) {
             gap-4
           "
         >
+          {/* GitHub */}
+
           <motion.a
             href={github}
             target="_blank"
@@ -137,12 +147,17 @@ function PortfolioCard({ title, description, tech, image, github, demo }) {
               items-center
               gap-2
               text-sm
+              bg-slate-900
+              dark:bg-transparent
               text-white
               border
-              border-slate-700
+              border-slate-900
+              dark:border-slate-700
               px-4
               py-2
               rounded-lg
+              hover:bg-slate-800
+              dark:hover:bg-slate-800
               hover:border-emerald-400
               transition-colors
               duration-300
@@ -152,6 +167,8 @@ function PortfolioCard({ title, description, tech, image, github, demo }) {
             <FaGithub />
             GitHub
           </motion.a>
+
+          {/* Live Demo */}
 
           <motion.a
             href={demo}

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { motion, AnimatePresence } from "framer-motion";
+
 import {
   FaGithub,
   FaLinkedin,
@@ -60,10 +61,14 @@ ${data.message}
     <main
       className="
         min-h-screen
-        bg-slate-950
-        text-white
+        bg-slate-50
+        dark:bg-slate-950
+        text-slate-900
+        dark:text-white
         px-6
         py-20
+        transition-colors
+        duration-300
       "
     >
       <section
@@ -98,8 +103,11 @@ ${data.message}
 
           <p
             className="
-              text-slate-400
+              text-slate-600
+              dark:text-slate-400
               max-w-xl
+              transition-colors
+              duration-300
             "
           >
             Have a project idea or want to collaborate? Send me a message and
@@ -107,7 +115,7 @@ ${data.message}
           </p>
         </motion.div>
 
-        {/* Status Message */}
+        {/* Status Messages */}
 
         <AnimatePresence>
           {status === "success" && (
@@ -125,18 +133,18 @@ ${data.message}
                 y: -20,
               }}
               className="
-                  mt-8
-                  flex
-                  items-center
-                  gap-3
-                  bg-emerald-500/10
-                  border
-                  border-emerald-500
-                  text-emerald-400
-                  px-5
-                  py-4
-                  rounded-lg
-                "
+                mt-8
+                flex
+                items-center
+                gap-3
+                bg-emerald-500/10
+                border
+                border-emerald-500
+                text-emerald-500
+                px-5
+                py-4
+                rounded-lg
+              "
             >
               <FaCheckCircle />
               Opening WhatsApp...
@@ -158,18 +166,18 @@ ${data.message}
                 y: -20,
               }}
               className="
-                  mt-8
-                  flex
-                  items-center
-                  gap-3
-                  bg-red-500/10
-                  border
-                  border-red-500
-                  text-red-400
-                  px-5
-                  py-4
-                  rounded-lg
-                "
+                mt-8
+                flex
+                items-center
+                gap-3
+                bg-red-500/10
+                border
+                border-red-500
+                text-red-500
+                px-5
+                py-4
+                rounded-lg
+              "
             >
               <FaExclamationCircle />
               Something went wrong. Try again.
@@ -193,79 +201,78 @@ ${data.message}
           }}
           className="
             mt-10
-            bg-slate-900
+            bg-white
+            dark:bg-slate-900
             border
-            border-slate-800
-            rounded-xl
+            border-slate-300
+            dark:border-slate-700
+            rounded-2xl
+            shadow-lg
+            shadow-slate-300/30
+            dark:shadow-black/25
             p-6
             md:p-8
             space-y-6
+            transition-all
+            duration-300
           "
         >
-          <div>
-            <label className="block mb-2 text-sm" htmlFor="name">
-              Name
-            </label>
-
-            <input
-              id="name"
-              {...register("name", {
+          {[
+            {
+              id: "name",
+              label: "Name",
+              type: "text",
+              error: errors.name,
+              register: {
                 required: "Name is required",
-              })}
-              className="
-                w-full
-                bg-slate-950
-                border
-                border-slate-700
-                rounded-lg
-                px-4
-                py-3
-                outline-none
-                focus:border-emerald-400
-              "
-            />
+              },
+            },
 
-            {errors.name && (
-              <p className="text-red-400 text-sm mt-2">{errors.name.message}</p>
-            )}
-          </div>
-
-          <div>
-            <label className="block mb-2 text-sm" htmlFor="email">
-              Email
-            </label>
-
-            <input
-              type="email"
-              id="email"
-              {...register("email", {
+            {
+              id: "email",
+              label: "Email",
+              type: "email",
+              error: errors.email,
+              register: {
                 required: "Email is required",
+              },
+            },
+          ].map((field) => (
+            <div key={field.id}>
+              <label className="block mb-2 text-sm" htmlFor={field.id}>
+                {field.label}
+              </label>
 
-                pattern: {
-                  value: /^\S+@\S+$/i,
+              <input
+                id={field.id}
+                type={field.type}
+                {...register(field.id, field.register)}
+                className="
+                  w-full
+                  bg-slate-100
+                  dark:bg-slate-950
+                  border
+                  border-slate-300
+                  dark:border-slate-700
+                  rounded-lg
+                  px-4
+                  py-3
+                  outline-none
+                  text-slate-900
+                  dark:text-white
+                  focus:border-emerald-400
+                  transition-colors
+                  duration-300
+                "
+              />
 
-                  message: "Enter a valid email",
-                },
-              })}
-              className="
-                w-full
-                bg-slate-950
-                border
-                border-slate-700
-                rounded-lg
-                px-4
-                py-3
-                outline-none
-                focus:border-emerald-400
-              "
-            />
-
-            {errors.email && (
-              <p className="text-red-400 text-sm mt-2">
-                {errors.email.message}
-              </p>
-            )}
-          </div>
+              {field.error && (
+                <p className="text-red-400 text-sm mt-2">
+                  {field.error.message}
+                </p>
+              )}
+            </div>
+          ))}
 
           <div>
             <label className="block mb-2 text-sm" htmlFor="message">
@@ -280,15 +287,21 @@ ${data.message}
               })}
               className="
                 w-full
-                bg-slate-950
+                bg-slate-100
+                dark:bg-slate-950
                 border
-                border-slate-700
+                border-slate-300
+                dark:border-slate-700
                 rounded-lg
                 px-4
                 py-3
                 outline-none
+                text-slate-900
+                dark:text-white
                 focus:border-emerald-400
                 resize-none
+                transition-colors
+                duration-300
               "
             />
 
@@ -334,32 +347,48 @@ ${data.message}
         >
           <a
             href="https://github.com/Ejeh-Emmanuel"
-            className="hover:text-emerald-400 transition cursor-pointer"
             aria-label="Visit my GitHub profile"
+            className="
+              hover:text-emerald-400
+              transition
+              cursor-pointer
+            "
           >
             <FaGithub />
           </a>
 
           <a
             href="https://www.linkedin.com/in/emmanuel-odugbo-40409b237?utm_source=share_via&utm_content=profile&utm_medium=member_android"
-            className="hover:text-emerald-400 transition cursor-pointer"
             aria-label="Visit my LinkedIn profile"
+            className="
+              hover:text-emerald-400
+              transition
+              cursor-pointer
+            "
           >
             <FaLinkedin />
           </a>
 
           <a
             href="https://x.com/Ejeh_jr250"
-            className="hover:text-emerald-400 transition cursor-pointer"
             aria-label="Visit my Twitter profile"
+            className="
+              hover:text-emerald-400
+              transition
+              cursor-pointer
+            "
           >
             <FaTwitter />
           </a>
 
           <a
-            href="https://wa.me/2348257836970"
-            className="hover:text-emerald-400 transition cursor-pointer"
+            href="https://wa.me/2348157836970"
             aria-label="Visit my WhatsApp profile"
+            className="
+              hover:text-emerald-400
+              transition
+              cursor-pointer
+            "
           >
             <FaWhatsapp />
           </a>

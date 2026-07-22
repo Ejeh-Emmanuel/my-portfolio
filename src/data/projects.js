@@ -12,7 +12,7 @@ const projects = [{
         id: 2,
         title: "Travel Planner",
         description: "A travel planning application where users can create and manage personalised trips.",
-        tech: "React • FastAPI • LocalStorage Database",
+        tech: "React • Tailwind CSS • LocalStorage Database",
         image: "/images/travel.jpg",
         github: "https://github.com/Ejeh-Emmanuel/travel-planner.git",
         demo: "#",

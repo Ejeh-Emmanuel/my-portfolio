@@ -47,7 +47,10 @@ function Hero() {
         items-center
         overflow-hidden
         px-6
-        bg-slate-950
+        bg-slate-50
+        dark:bg-slate-950
+        transition-colors
+        duration-300
       "
     >
       {/* Animated Background Blobs */}
@@ -55,14 +58,11 @@ function Hero() {
       <motion.div
         animate={{
           x: [0, 40, 0],
-
           y: [0, -30, 0],
         }}
         transition={{
           duration: 12,
-
           repeat: Infinity,
-
           ease: "easeInOut",
         }}
         className="
@@ -80,14 +80,11 @@ function Hero() {
       <motion.div
         animate={{
           x: [0, -40, 0],
-
           y: [0, 30, 0],
         }}
         transition={{
           duration: 15,
-
           repeat: Infinity,
-
           ease: "easeInOut",
         }}
         className="
@@ -104,19 +101,19 @@ function Hero() {
 
       <div
         className="
-         relative
-         max-w-6xl
-         mx-auto
-         flex
-         flex-col
-         items-center
-         gap-12
-         py-20
-         md:grid
-         md:grid-cols-2
-         md:items-center
-         md:py-0
-       "
+          relative
+          max-w-6xl
+          mx-auto
+          flex
+          flex-col
+          items-center
+          gap-12
+          py-20
+          md:grid
+          md:grid-cols-2
+          md:items-center
+          md:py-0
+        "
       >
         {/* Text Content */}
 
@@ -128,7 +125,7 @@ function Hero() {
           <motion.p
             variants={itemVariants}
             className="
-              text-emerald-400
+              text-emerald-500
               font-semibold
               mb-4
             "
@@ -142,8 +139,11 @@ function Hero() {
               text-5xl
               md:text-6xl
               font-bold
-              text-white
+              text-slate-900
+              dark:text-white
               leading-tight
+              transition-colors
+              duration-300
             "
           >
             Emmanuel Odugbo
@@ -154,8 +154,11 @@ function Hero() {
             className="
               text-2xl
               md:text-3xl
-              text-slate-300
+              text-slate-700
+              dark:text-slate-300
               mt-4
+              transition-colors
+              duration-300
             "
           >
             A Frontend Developer
@@ -164,10 +167,13 @@ function Hero() {
           <motion.p
             variants={itemVariants}
             className="
-              text-slate-400
+              text-slate-600
+              dark:text-slate-400
               mt-6
               max-w-lg
               leading-relaxed
+              transition-colors
+              duration-300
             "
           >
             I build responsive and interactive web applications using modern
@@ -226,8 +232,10 @@ function Hero() {
                 items-center
                 gap-2
                 border
-                border-slate-700
-                text-white
+                border-slate-300
+                dark:border-slate-700
+                text-slate-900
+                dark:text-white
                 px-6
                 py-3
                 rounded-lg
@@ -247,12 +255,10 @@ function Hero() {
         <motion.div
           initial={{
             opacity: 0,
-
             scale: 0.8,
           }}
           animate={{
             opacity: 1,
-
             scale: 1,
           }}
           transition={{
@@ -269,9 +275,7 @@ function Hero() {
             }}
             transition={{
               duration: 4,
-
               repeat: Infinity,
-
               ease: "easeInOut",
             }}
             className="

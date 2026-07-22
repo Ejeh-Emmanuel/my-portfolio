@@ -1,8 +1,6 @@
 import { motion } from "framer-motion";
 import { FaReact, FaJs, FaPython, FaHtml5, FaCss3Alt } from "react-icons/fa";
-
 import { SiTailwindcss, SiFastapi, SiMysql } from "react-icons/si";
-
 
 const skills = [
   {
@@ -57,35 +55,30 @@ const skills = [
 const journey = [
   {
     title: "Computer Science Education",
-
     description:
       "Graduated with a Bachelor's degree and a solid foundation in Computer Science, building a strong base in programming, software development concepts and technology.",
   },
 
   {
     title: "Frontend Development",
-
     description:
       "Focused on creating responsive and interactive user interfaces using HTML, CSS, JavaScript, React and Tailwind CSS. Building projects that combine clean design with practical functionality.",
   },
 
   {
     title: "Office Assistant — NYSC",
-
     description:
       "Gained experience supporting technical operations, troubleshooting issues and working with Office Suites and Packages in a professional work environment.",
   },
 
   {
     title: "Expanding into Backend Development",
-
     description:
       "Currently exploring backend development with Python, FastAPI, SQL and database design while building towards full-stack development.",
   },
 
   {
     title: "Building Real-World Projects",
-
     description:
       "Developing portfolio projects including recipe applications, travel planning solutions and other web applications to strengthen practical software engineering skills.",
   },
@@ -95,11 +88,15 @@ function About() {
   return (
     <main
       className="
-        bg-slate-950
-        text-white
+        bg-slate-50
+        dark:bg-slate-950
+        text-slate-900
+        dark:text-white
         min-h-screen
         px-6
         py-20
+        transition-colors
+        duration-300
       "
     >
       {/* Introduction */}
@@ -136,9 +133,12 @@ function About() {
 
           <p
             className="
-              text-slate-400
+              text-slate-600
+              dark:text-slate-400
               max-w-3xl
               leading-relaxed
+              transition-colors
+              duration-300
             "
           >
             I'm Emmanuel Odugbo, a frontend developer passionate about creating
@@ -168,34 +168,30 @@ function About() {
           Skills & Technologies
         </h2>
 
-        <div
-          className="
-            space-y-8
-          "
-        >
+        <div className="space-y-8">
           {skills.map((skill) => (
             <div key={skill.name}>
               <div
                 className="
-                    flex
-                    items-center
-                    justify-between
-                    mb-3
-                  "
+                  flex
+                  items-center
+                  justify-between
+                  mb-3
+                "
               >
                 <div
                   className="
-                      flex
-                      items-center
-                      gap-3
-                      text-lg
-                    "
+                    flex
+                    items-center
+                    gap-3
+                    text-lg
+                  "
                 >
                   <span
                     className="
-                        text-emerald-400
-                        text-xl
-                      "
+                      text-emerald-500
+                      text-xl
+                    "
                   >
                     {skill.icon}
                   </span>
@@ -205,9 +201,9 @@ function About() {
 
                 <span
                   className="
-                      text-emerald-400
-                      text-sm
-                    "
+                    text-emerald-500
+                    text-sm
+                  "
                 >
                   {skill.level}%
                 </span>
@@ -215,11 +211,14 @@ function About() {
 
               <div
                 className="
-                    h-3
-                    bg-slate-800
-                    rounded-full
-                    overflow-hidden
-                  "
+                  h-3
+                  bg-slate-200
+                  dark:bg-slate-800
+                  rounded-full
+                  overflow-hidden
+                  transition-colors
+                  duration-300
+                "
               >
                 <motion.div
                   initial={{
@@ -233,14 +232,13 @@ function About() {
                   }}
                   transition={{
                     duration: 1.2,
-
                     ease: "easeOut",
                   }}
                   className="
-                      h-full
-                      bg-emerald-500
-                      rounded-full
-                    "
+                    h-full
+                    bg-emerald-500
+                    rounded-full
+                  "
                 />
               </div>
             </div>
@@ -280,12 +278,10 @@ function About() {
               key={item.title}
               initial={{
                 opacity: 0,
-
                 x: -30,
               }}
               whileInView={{
                 opacity: 1,
-
                 x: 0,
               }}
               viewport={{
@@ -293,44 +289,47 @@ function About() {
               }}
               transition={{
                 duration: 0.5,
-
                 delay: index * 0.15,
               }}
               className="
-                  relative
-                "
+                relative
+              "
             >
-              {/* Timeline Dot */}
-
               <span
                 className="
-                    absolute
-                    -left-10.5
-                    top-2
-                    w-5
-                    h-5
-                    bg-emerald-500
-                    rounded-full
-                    border-4
-                    border-slate-950
-                  "
+                  absolute
+                  -left-10.5
+                  top-2
+                  w-5
+                  h-5
+                  bg-emerald-500
+                  rounded-full
+                  border-4
+                  border-slate-50
+                  dark:border-slate-950
+                  transition-colors
+                  duration-300
+                "
               />
 
               <h3
                 className="
-                    text-xl
-                    font-semibold
-                  "
+                  text-xl
+                  font-semibold
+                "
               >
                 {item.title}
               </h3>
 
               <p
                 className="
-                    text-slate-400
-                    mt-2
-                    leading-relaxed
-                  "
+                  text-slate-600
+                  dark:text-slate-400
+                  mt-2
+                  leading-relaxed
+                  transition-colors
+                  duration-300
+                "
               >
                 {item.description}
               </p>

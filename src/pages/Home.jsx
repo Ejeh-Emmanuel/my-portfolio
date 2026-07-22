@@ -6,8 +6,12 @@ function Home() {
   return (
     <main
       className="
-        bg-slate-950
-        text-white
+        bg-slate-50
+        dark:bg-slate-950
+        text-slate-900
+        dark:text-white
+        transition-colors
+        duration-300
       "
     >
       <Hero />
@@ -26,6 +30,10 @@ function Home() {
             md:text-4xl
             font-bold
             mb-10
+            text-slate-900
+            dark:text-white
+            transition-colors
+            duration-300
           "
         >
           Featured Projects
